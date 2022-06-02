@@ -20,8 +20,6 @@ def stub_view(request, *args, **kwargs):
 class PostListView(ListView):
     queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
     template_name = "blogging/list.html"
-    posts = queryset
-    context = {'object': posts}
 
 class PostDetailView(DetailView):
     queryset = Post.objects.exclude(published_date__exact=None)
